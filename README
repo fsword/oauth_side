@@ -1,0 +1,12 @@
+OauthSide
+=========
+
+对oauth库进一步进行封装，简化rails开发中与oauth相关的功能
+
+Example
+=======
+
+$ cd rails3app
+$ rails plugin install git@github.com:fsword/oauth_side.git
+
+Copyright (c) 2010 [name of plugin creator], released under the MIT license
