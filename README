@@ -24,4 +24,4 @@ $ rails plugin install git@github.com:fsword/oauth_side.git
 任何时候，程序员可以通过 user.douban? 来判断这个用户是否批准了douban的oauth授权。
 对于经过授权的用户，程序员可以通过 user.douban 获取一个 OAuth::AccessToken 对象访问douban的api
 
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+Copyright (c) 2010 li.jianye@gmail.com, released under the MIT license
