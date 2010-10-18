@@ -34,14 +34,6 @@ class OauthToken < ActiveRecord::Base
     @access
   end
 
-# def method_missing method, *args
-#  if access_token
-#      access_token.send method, *args
-#    else
-#      super
-#    end
-#  end
-
   # 获取 concumer
   def consumer
     @consumer ||= lambda{|config|

@@ -50,31 +50,3 @@ Rails.oauth.each_pair{|site,props|
     end
   EOF
 }
-#  s = %Q|
-#    class #{Rails.oauth_model} < ActiveRecord::Base
-#      def #{site.to_s}
-#	      OauthToken.find_by_user_id_and_site(id, '#{site.to_s}').access_token
-#	    end
-
-#      def #{site.to_s}?
-#	      record = OauthToken.find_by_user_id_and_site id, '#{site.to_s}'
-#	      record && (!record.access_token.nil?)
-#      end
-#    end
-#  |
-#  eval s
-#  eval(Rails.oauth_model).class_eval <<-EOF
-#    def #{site.to_s}
-#	  OauthToken.find_by_user_id_and_site(id, '#{site.to_s}').access_token
-#	end
-#    def #{site.to_s}?
-#	  record = OauthToken.find_by_user_id_and_site id, '#{site.to_s}'
-#	  record && (!record.access_token.nil?)
-#    end
-#  EOF
-
-
-# 动态功能可行，可做如下调用：
-# irb(main):001:0> OauthSide::OauthController.new.douban
-#Hello World!request_token_path/service/auth/reque....
-#TODO rails提供参数

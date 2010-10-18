@@ -8,7 +8,7 @@ class OauthController < ApplicationController
     
   def accept
     access = OauthToken.find_by_user_id(current_user.id).authorize
-    redirect_to '/'
+    redirect_to '/' #TODO 暂时返回网站主页
   end
 
 end
