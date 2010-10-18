@@ -17,7 +17,7 @@ $ rails plugin install git@github.com:fsword/oauth_side.git
 设置oauth配置信息（以豆瓣为例）
 1. 添加网站专有配置: Rails.root/config/oauth/douban.yml
 2. 确保 ApplicationController 有一个 current_user 方法，返回的是当前用户的 model
-3. 修改视图文件，添加一个链接 <%=link_to :controller => 'oauth', :action => 'douban', :id => current_user.id %>
+3. 修改视图文件，添加一个链接 <%=link_to :controller => 'oauth', :action => 'douban' %>
 [注：用户点击这个链接后，oauth controller将根据id给出的配置建立 oauth consumer ，然后发起 request_token，
 用户将被302到douban网站进行oauth授权，结束后会callback回本站点，由oauth_controller的accept接受和处理]
 4. 程序员指定 oauth 所对应模型，在 User 类中添加一行：
