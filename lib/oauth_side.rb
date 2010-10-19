@@ -44,7 +44,7 @@ Rails.oauth.each_pair{|site,props|
 		if auth_url =~ /&oauth_callback/
 		  redirect_to auth_url
 		else
-		  redirect_to auth_url + "&oauth_callback=" + default_callback_url
+		  redirect_to auth_url + "&oauth_callback=" + default_callback_url('#{site.to_s}')
         end
       end
     end
