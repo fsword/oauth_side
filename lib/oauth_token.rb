@@ -14,6 +14,7 @@ class OauthToken < ActiveRecord::Base
   # 获取当前的rquest_token对象，如果没有就创建一个
   def request_token
     return @request if @request
+
     if request_key.nil?
       @request = consumer.get_request_token
       update_attributes :request_key => @request.token, :request_secret => @request.secret
@@ -29,8 +30,12 @@ class OauthToken < ActiveRecord::Base
   end
 
   # 获取访问授权信息，从这里开始系统就可以提供对用户的服务了
-  def authorize
-    @access = request_token.get_access_token
+  def authorize oauth_verifier = nil
+    if oauth_verifier
+      @access = request_token.get_access_token :oauth_verifier => oauth_verifier
+    else
+      @access = request_token.get_access_token :oauth_verifier => oauth_verifier
+    end
     update_attributes :access_key => @access.token, :access_secret => @access.secret
     @access
   end
