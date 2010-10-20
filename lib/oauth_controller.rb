@@ -1,6 +1,4 @@
 class OauthController < ApplicationController
-  def initialize
-  end
 
   def default_callback_url site
     URI.encode url_for(:controller => 'oauth', :action => 'accept')
