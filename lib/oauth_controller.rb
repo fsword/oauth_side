@@ -12,11 +12,11 @@ class OauthController < ApplicationController
   end
 
   def cancel
-    record = OauthToken.where(:user_id => current_user.id, :site => params[:site])
-	if record.destroy
-	  render :text => 'ok'
-	else
-	  render :text => 'fail', :status => 500
+    record = OauthToken.where(:user_id => current_user.id, :site => params[:site]).first
+    if record.destroy
+      render :text => 'ok'
+    else
+      render :text => 'fail', :status => 500
     end
   end
 
