@@ -1,7 +1,7 @@
 class OauthController < ApplicationController
 
   def default_callback_url site
-        URI.encode url_for(:controller => 'oauth', :action => 'accept')
+    URI.encode url_for(:controller => 'oauth', :action => 'accept')
   end
     
   def accept
@@ -11,4 +11,20 @@ class OauthController < ApplicationController
     redirect_to (session[:oauth_refers]||{})[record.site] || '/' 
   end
 
+  def cancel
+    record = OauthToken.where(:user_id => current_user.id, :site => params[:site])
+	if record.destroy
+	  render :text => 'ok'
+	else
+	  render :text => 'fail', :status => 500
+    end
+  end
+
+  def cancel_all
+    if OauthToken.where(:user_id => current_user.id).delete_all
+	  render :text => 'ok'
+	else
+	  render :text => 'fail', :status => 500
+	end
+  end
 end

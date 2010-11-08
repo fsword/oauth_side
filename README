@@ -33,6 +33,7 @@ $ rails plugin install https://github.com/fsword/oauth_side.git
   . 登录
   . 点击 [关联豆瓣帐号] 链接，并根据要求进入douban.com，登录douban并允许使用权限
   . 重定向回来之后当前网站将可以访问douban网，具体如何使用取决于 user.douban 的调用
+  . cancel/cancel_all: 程序员可以访问 oauth controller 的 cancel 和 cancel_all 这两个 action 让当前用户取消授权，其中，cancel 需要接受一个名为 site 的参数，参数值对应之前在 Rails.root/config/oauth/ 目录下的设置
 
 
 Copyright (c) 2010 li.jianye@gmail.com, released under the MIT license
